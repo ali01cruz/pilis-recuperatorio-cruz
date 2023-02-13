@@ -1,0 +1,6 @@
+.sign-in-container, .sign-in-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
