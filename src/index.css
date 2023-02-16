@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(141, 19, 19, 0.87);
-  color1: rgba(141, 19, 19, 0.87);
   --color1: #31827c;
   --color2: #95c68f;
   --color3: #f7e9aa;
@@ -14,7 +13,6 @@
  
 
 
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

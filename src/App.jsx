@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
+import Questions from './components/Questions/Questions'
 
 function App() {
 
-  return (
-    <div className="App">
-      HOla porrrisssz
-    </div>
-  )
+    return (
+        <>
+          <Questions> </Questions>
+        </>
+    )
 }
 
 export default App
