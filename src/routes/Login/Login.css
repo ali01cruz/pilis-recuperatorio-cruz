@@ -1,0 +1,19 @@
+.color {
+  color: black;
+}
+.cool {
+  background-color: rgba(143, 23, 117, 0.836);
+  justify-content: center;
+}
+.pichichin {
+  margin-right: auto;
+  margin-left: auto;
+}
+.btn-col{
+    background-color: #231372a2;
+    display: flex;
+    justify-content: center;
+}
+.btn-col:hover{
+    background-color: #555e7d59;
+}

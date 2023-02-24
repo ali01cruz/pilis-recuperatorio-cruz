@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from '../../contexts/UserContext';
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import "./Login.css"
 const Login = () => {
 
     const { setCurrentUser } = useContext(UserContext)
@@ -24,10 +24,9 @@ const Login = () => {
     }
 
     return (
-        <div className="sign-in-container d-flex flex-column justify-content-between text-center align-items-center">
-            <span>Ingresar correo electrónico y contraseña</span>
-            <Card style={{ width: '25rem' }}>
-                <Card.Body>
+        <div className="color">
+            <Card className="pichichin" style={{ width: '25rem' }}>
+                <Card.Body className="cool"  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label className="d-flex text-start">Correo electrónico</Form.Label>
@@ -47,9 +46,10 @@ const Login = () => {
                                 )} />
                             <p>{errors.password?.message}</p>
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <button className="btn-col" type="submit">
                             Ingresar
-                        </Button>
+                            
+                        </button>
                     </Form>
                 </Card.Body>
             </Card>

@@ -1,0 +1,14 @@
+.style p {
+  font-size: 30px;
+  color: rgb(218, 218, 96);
+  box-shadow: 1px 0px 0px 8px rgb(153 11 122 / 72%);
+  background-color: #231372a2;
+  margin-left: 25px;
+  padding-left: 25px;
+}
+
+.style {
+  width: 200px;
+  height: 50px;
+  box-sizing: border-box;
+}
