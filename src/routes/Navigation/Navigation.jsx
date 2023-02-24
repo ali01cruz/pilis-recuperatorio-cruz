@@ -1,9 +1,11 @@
 import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
 const Navigation = () => {
+ 
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   useEffect(() => {
@@ -45,7 +47,9 @@ const Navigation = () => {
             <Nav className="justify-content-end" activeKey="/home">
               <Nav.Item>
                 <Nav.Link className="nav-link sign-out" onClick={handleSignOut} eventKey="link-1">Cerrar Sesión {"("} {currentUser.username} {")"}</Nav.Link>
+                
               </Nav.Item>
+              
             </Nav>
           ) : (
             <Nav className="justify-content-end" activeKey="/home">
@@ -55,8 +59,10 @@ const Navigation = () => {
             </Nav>
           )}
           <div>
+            
             <h1 className="text-center">The Trivia</h1>
-            {Informacion}
+            {!currentUser && (Informacion)}
+            
           </div>
         </div>
       </div>
