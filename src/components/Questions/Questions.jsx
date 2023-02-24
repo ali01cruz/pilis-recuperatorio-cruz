@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import preguntas from "./Filtrado";
 import "./Questions.css";
+import { ObjFilterContext } from '../../contexts/ObjFilterContext';
+import { useContext } from 'react';
 
 const Questions = () => {
   const [question, setQuestion] = useState(0);
   const [timeOut, setTimeOut] = useState(10);
+  const [preguntasq, setPreguntasq] = useState([]);
   const [areDisabled, setAreDisabled] = useState(false);
   const [points, setPoints] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const {objFilter} = useContext(ObjFilterContext);
+  
 
   function AnswerSubmit(boolean) {
     if (boolean) setPoints(points + 1);

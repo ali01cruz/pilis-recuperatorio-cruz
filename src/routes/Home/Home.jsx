@@ -1,14 +1,23 @@
 import './Home.css';
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import TriviaApp from '../../components/Filters/Filters.jsx';
 
 const Home = () => {
+  const { currentUser } = useContext(UserContext);
   
-  return (
-    <>
-      <div className='main-container'>
-          ENTRANDO AL  JUEGO
-      </div>
-    </>
-  );
+  if (currentUser) {
+    return (
+      <>
+        <div className='main-container'>
+            <TriviaApp></TriviaApp>
+        </div>
+      </>
+    );
+  } 
+  
+
+  
 };
 
 export default Home;
