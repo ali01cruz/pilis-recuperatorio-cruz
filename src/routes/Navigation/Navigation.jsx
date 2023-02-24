@@ -1,9 +1,8 @@
 import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
-import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
-
+import "./navigation.css"
 const Navigation = () => {
  
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -52,10 +51,10 @@ const Navigation = () => {
               
             </Nav>
           ) : (
-            <Nav className="justify-content-end" activeKey="/home">
-              <Nav.Item>
-                <Nav.Link as={Link} className="nav-link sign-in" to="/login" >Iniciar sesión</Nav.Link>
-              </Nav.Item>
+            <Nav className="justify-content-start" activeKey="/home">
+              <div className="style">
+                <Nav.Link as={Link} to="/login" ><p className="style">Iniciar sesión</p> </Nav.Link>
+              </div>
             </Nav>
           )}
           <div>
