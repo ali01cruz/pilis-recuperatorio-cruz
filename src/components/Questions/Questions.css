@@ -1,0 +1,93 @@
+* {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    color: #fff;
+    background-color: #77746b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .box {
+    background-color: #195c46;
+    width: 600px;
+    height: 400px;
+    min-height: 200px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: space-evenly;
+  }
+    .lef {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .questions {
+    margin-bottom: 20px;
+  }
+  .title-questions{
+    font-size: 30px;
+  
+  }
+  .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+    
+  button {
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #060e2b;
+    border-radius: 10px;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #2c9929;
+    cursor: pointer;
+  }
+  
+  .time-out {
+    font-size: 15px;
+    color: #fcbf3d;
+    margin-bottom: 20px;
+  }
+    
+  button:hover {
+    background-color: #19041f;
+    border: 2px solid #dde7dc;
+
+  }
+  
+  button[disabled] {
+    background-color: #555e7d;
+    color: #ffffff;
+    cursor: not-allowed;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button svg {
+    margin-right: 5px;
+  }
+  .finalized{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 24px;
+    align-items: center;
+  }
