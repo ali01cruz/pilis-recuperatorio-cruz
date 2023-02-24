@@ -10,13 +10,14 @@ function TriviaApp() {
   const [difficulty, setDifficulty] = useState('');
   const [limit, setLimit] = useState(10);
   const [questions, setQuestions] = useState([]);
-  const {setObjFilter} = useContext(ObjFilterContext);
+  const {objFilter , setObjFilter} = useContext(ObjFilterContext);
 
   const getQuestions = async () => {
     const url = `https://the-trivia-api.com/api/questions?categories=${category}&limit=${limit}&difficulty=${difficulty}`;
     const response = await axios.get(url);
     setQuestions(response.data);
-    setObjFilter(questions);
+    setObjFilter(response.data);
+    
     navigate('/play')
   }
 

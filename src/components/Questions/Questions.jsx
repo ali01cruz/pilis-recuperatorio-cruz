@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
-import preguntas from "./Filtrado";
+
 import "./Questions.css";
 import { ObjFilterContext } from '../../contexts/ObjFilterContext';
 import { useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const Questions = () => {
   const [question, setQuestion] = useState(0);
   const [timeOut, setTimeOut] = useState(10);
-  const [preguntasq, setPreguntasq] = useState([]);
   const [areDisabled, setAreDisabled] = useState(false);
   const [points, setPoints] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const {objFilter} = useContext(ObjFilterContext);
-  
+  const navigate = useNavigate()
 
   function AnswerSubmit(boolean) {
     if (boolean) setPoints(points + 1);
     setTimeout(() => {
-      if (question === preguntas.length - 1) {
+      if (question === objFilter.length - 1) {
         setIsFinished(true);
       } else {
         setQuestion(question + 1);
@@ -25,6 +26,11 @@ const Questions = () => {
       }
     }, 500);
   }
+
+  useEffect(() => {
+    console.log(objFilter);
+    
+  }, []);
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -39,9 +45,9 @@ const Questions = () => {
       <main className="box">
         <div className="finalized">
           <span>
-            Result {points} of {preguntas.length}
+            Result {points} of {objFilter.length}
           </span>
-          <button onClick={() => (window.location.href = "/")}>
+          <button onClick={() => navigate('/')}>
             {" "}
             Play Again
           </button>
@@ -52,10 +58,10 @@ const Questions = () => {
   return (
     <main className="box">
       <div className="lef">
-        <div className="title-questions">{preguntas[question].question}</div>
+        <div className="title-questions">{objFilter[question].question}</div>
 
         <div className="questions">
-          <span>Questions {question + 1} of</span> {preguntas.length}
+          <span>Questions {question + 1} of</span> {objFilter.length}
         </div>
 
         <div>
@@ -67,7 +73,7 @@ const Questions = () => {
               onClick={() => {
                 setTimeOut(10);
                 setAreDisabled(false);
-                if (question === preguntas.length - 1) {
+                if (question === objFilter.length - 1) {
                   setIsFinished(true);
                 } else {
                   setQuestion(question + 1);
@@ -81,7 +87,7 @@ const Questions = () => {
       </div>
 
       <div className="right">
-        {preguntas[question].incorrectAnswers.map((answer) => (
+        {objFilter[question].incorrectAnswers.map((answer) => (
           <button
             disabled={areDisabled}
             key={answer}
@@ -92,10 +98,10 @@ const Questions = () => {
         ))}
         <button
           disabled={areDisabled}
-          key={preguntas}
+          key={objFilter}
           onClick={() => AnswerSubmit(true)}
         >
-          {preguntas[question].correctAnswer}
+          {objFilter[question].correctAnswer}
         </button>
       </div>
     </main>
