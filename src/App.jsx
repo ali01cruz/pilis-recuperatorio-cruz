@@ -1,11 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Login from "./components/Login";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
   return (
     <div className="App">
-      HOla porrrisssz
+      <Routes>
+        <Route path='/' element={<Navigation />}>
+          <Route path='/login' element={<Login />} />
+        </Route>
+      </Routes>
     </div>
   )
 }
