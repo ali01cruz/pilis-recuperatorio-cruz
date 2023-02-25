@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import axios from 'axios';
+import { getCategoris } from '../../service.js';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { ObjFilterContext } from '../../contexts/ObjFilterContext';
@@ -7,10 +8,26 @@ import { ObjFilterContext } from '../../contexts/ObjFilterContext';
 function TriviaApp() {
   const navigate = useNavigate()
   const [category, setCategory] = useState('');
+  const [categoryArray, setCategoryArray] = useState([]);
   const [difficulty, setDifficulty] = useState('');
   const [limit, setLimit] = useState(10);
   const [questions, setQuestions] = useState([]);
   const {objFilter , setObjFilter} = useContext(ObjFilterContext);
+
+  useEffect(()=> {
+    getCategoris()
+    .then((data) => {
+
+      let com = []
+
+      for (let clave in data){
+      com = [...com , ...data[clave]]
+      }
+      setCategoryArray(com);
+      
+    })
+    .catch((err) => console.log(err));
+  }, [])
 
   const getQuestions = async () => {
     const url = `https://the-trivia-api.com/api/questions?categories=${category}&limit=${limit}&difficulty=${difficulty}`;
@@ -28,9 +45,9 @@ function TriviaApp() {
         <label htmlFor="category-select">Category:</label>
         <select id="category-select" value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="">Any Category</option>
-          <option value="geography">Geography</option>
-          <option value="history">History</option>
-          <option value="science">Science</option>
+          {categoryArray.map((ca) =>
+            <option value={ca}>{ca}</option>
+          )}
         </select>
       </div>
       <div>
