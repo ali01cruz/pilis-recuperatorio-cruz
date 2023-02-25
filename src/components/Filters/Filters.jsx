@@ -44,7 +44,7 @@ function TriviaApp() {
       </div>
       <div>
         <label htmlFor="limit-select">Limit:</label>
-        <input type="number" id="limit-select" value={limit} onChange={(e) => setLimit(e.target.value)} />
+        <input min={1} type="number" id="limit-select" value={limit} onChange={(e) => setLimit(e.target.value)} />
       </div>
       <button onClick={getQuestions}>Start Trivia</button>
       
