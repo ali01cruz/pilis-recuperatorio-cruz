@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import Nav from "react-bootstrap/Nav";
-
+import "./navigation.css"
 
 const Navigation = () => {
 
@@ -57,6 +57,7 @@ const Navigation = () => {
               <Nav.Item>
                 <Nav.Link as={Link} className="nav-link fs-3 text-white" to="/about" eventKey="about">About</Nav.Link>
               </Nav.Item>
+
             </Nav>
           )}
           <div>
