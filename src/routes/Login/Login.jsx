@@ -25,30 +25,30 @@ const Login = () => {
 
     return (
         <div className="sign-in-container d-flex flex-column justify-content-between text-center align-items-center">
-            <span>Ingresar correo electrónico y contraseña</span>
+            <span>Enter email and password</span>
             <Card style={{ width: '25rem' }}>
                 <Card.Body>
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="d-flex text-start">Correo electrónico</Form.Label>
-                            <Form.Control type="email" placeholder="correo electrónico"
+                            <Form.Label className="d-flex text-start text-dark">Email</Form.Label>
+                            <Form.Control type="email" placeholder="email"
                                 {...register('username', {
-                                    required: 'Ingrese su correo electrónico'
+                                    required: 'Enter your email'
                                 }
                                 )} />
                             <p>{errors.username?.message}</p>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label className="d-flex text-start">Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="contraseña"
+                            <Form.Label className="d-flex text-start text-dark">Password</Form.Label>
+                            <Form.Control type="password" placeholder="password"
                                 {...register('password', {
-                                    required: 'Ingrese su contraseña'
+                                    required: 'Enter your password'
                                 }
                                 )} />
                             <p>{errors.password?.message}</p>
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Ingresar
+                           Log in
                         </Button>
                     </Form>
                 </Card.Body>
