@@ -3,8 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import Nav from "react-bootstrap/Nav";
 import "./navigation.css"
+
 const Navigation = () => {
- 
+
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Navigation = () => {
     localStorage.removeItem("currentUser");
   };
 
-  const Informacion = <p>
+  const Informacion = <p className="p-3 text-break">
     The Trivia API - Free to use API for multiple choice trivia questions. Featuring procedurally generated and user generated questions.
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, alias sed cumque placeat quaerat numquam quod recusandae? Ratione, tempora accusamus unde culpa vero doloremque blanditiis, pariatur nihil ut maxime dolorum?
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quidem velit animi, perferendis soluta inventore dicta saepe dignissimos corporis unde fuga consequuntur explicabo, eveniet non labore voluptatibus ratione quia id.
@@ -45,23 +46,23 @@ const Navigation = () => {
           {currentUser ? (
             <Nav className="justify-content-end" activeKey="/home">
               <Nav.Item>
-                <Nav.Link className="nav-link sign-out" onClick={handleSignOut} eventKey="link-1">Cerrar Sesión {"("} {currentUser.username} {")"}</Nav.Link>
-                
+                <Nav.Link className="nav-link sign-out fs-3 text-white" onClick={handleSignOut} eventKey="link-1">Log out {"("} {currentUser.username} {")"}</Nav.Link>
               </Nav.Item>
-              
             </Nav>
           ) : (
-            <Nav className="justify-content-start" activeKey="/home">
-              <div className="style">
-                <Nav.Link as={Link} to="/login" ><p className="style">Iniciar sesión</p> </Nav.Link>
-              </div>
+            <Nav className="justify-content-end" activeKey="/home">
+              <Nav.Item>
+                <Nav.Link as={Link} className="nav-link sign-in fs-3 text-white" to="/login" >Login</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} className="nav-link fs-3 text-white" to="/about" eventKey="about">About</Nav.Link>
+              </Nav.Item>
+
             </Nav>
           )}
           <div>
-            
             <h1 className="text-center">The Trivia</h1>
             {!currentUser && (Informacion)}
-            
           </div>
         </div>
       </div>

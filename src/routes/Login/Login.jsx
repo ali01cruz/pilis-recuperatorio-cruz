@@ -24,32 +24,35 @@ const Login = () => {
     }
 
     return (
+
         <div className="color">
             <Card className="pichichin" style={{ width: '25rem' }}>
                 <Card.Body className="cool"  >
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="d-flex text-start">Correo electrónico</Form.Label>
-                            <Form.Control type="email" placeholder="correo electrónico"
+                            <Form.Label className="d-flex text-start text-dark">Email</Form.Label>
+                            <Form.Control type="email" placeholder="email"
                                 {...register('username', {
-                                    required: 'Ingrese su correo electrónico'
+                                    required: 'Enter your email'
                                 }
                                 )} />
                             <p>{errors.username?.message}</p>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label className="d-flex text-start">Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="contraseña"
+                            <Form.Label className="d-flex text-start text-dark">Password</Form.Label>
+                            <Form.Control type="password" placeholder="password"
                                 {...register('password', {
-                                    required: 'Ingrese su contraseña'
+                                    required: 'Enter your password'
                                 }
                                 )} />
                             <p>{errors.password?.message}</p>
                         </Form.Group>
+
                         <button className="btn-col" type="submit">
                             Ingresar
                             
                         </button>
+
                     </Form>
                 </Card.Body>
             </Card>
